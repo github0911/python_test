@@ -21,17 +21,7 @@ class Start(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        # desired_caps = {}
-        # desired_caps['platformName'] = 'Android'
-        # # 红米note 5.1.1 三星galaxy s6 7.0
-        # desired_caps['platformVersion'] = '5.1.1'
-        # # 红米note eaad2f74 三星galaxy s6 1015fa656dcf1605
-        # desired_caps['deviceName'] = 'eaad2f74'
-        # desired_caps['noReset'] = 'True'
-        # # desired_caps['udid'] = 'eaad2f74'
-        # desired_caps['appPackage'] = 'com.jingxuansugou.app'
-        # desired_caps['appActivity'] = 'com.jingxuansugou.app.business.guide.StartActivity'
-        # cls.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+
         cls.driver = helper.init_driver()
 
         time.sleep(2)
@@ -43,19 +33,18 @@ class Start(unittest.TestCase):
         # self.assertEquals('com.jingxuansugou.app.business.guide.StartActivity',
         #                   '{}{}'.format(pkg, activity))
         # helper.take_screenshot(self.driver)
-        el = helper.find_element_by_id(self.driver, "tv_jump")
+        el = self.driver.find_element_by_id("tv_jump")
         self.assertIsNotNone(el)
         el.click()
         # self.test_failed()
 
-    @unittest.skip
     def test_find_element(self):
         # driver.find_element_by_name('跳过').click()
         el = self.driver.find_element_by_name("个人中心")
-        self.assertTrue(el.__sizeof__() != 2, "未找到个人中心")
+        self.assertTrue(len(el) != 2, "未找到个人中心")
 
-        self.assertEqual(el.__sizeof__(), 2)
-        """el.size  """ + el.__sizeof__()
+        self.assertEqual(len(el), 2)
+        """el.size  """ + len(el)
         self.assertIsNotNone(el, "未找到个人中心")
         el.click()
 
@@ -102,13 +91,9 @@ class Start(unittest.TestCase):
         time.sleep(6)
         self.assertFalse('Failed'.isupper())
 
-    @staticmethod
-    def driver_quit(cls):
-        cls.driver.quit()
-
     @classmethod
     def tearDownClass(cls):
-        cls.driver_quit(cls)
+        cls.driver.quit()
 
 if __name__ == '__main__':
     # 获取文件目录
