@@ -41,18 +41,18 @@ class Start(unittest.TestCase):
     def test_find_element(self):
         # driver.find_element_by_name('跳过').click()
         el = self.driver.find_element_by_name("个人中心")
-        self.assertTrue(len(el) != 2, "未找到个人中心")
 
-        self.assertEqual(len(el), 2)
-        """el.size  """ + len(el)
-        self.assertIsNotNone(el, "未找到个人中心")
+        self.assertIsNone(el, "未找到个人中心")
         el.click()
+
+        self.assertTrue(len([el]) != 2, "未找到个人中心")
 
     def test_home_share(self):
         helper.take_screenshot(self.driver)
 
         el = self.driver.find_element_by_id("iv_home_top_share")
         self.assertIsNotNone(el, "首页分享按钮存在")
+
         el.click()
 
         el = self.driver.find_element_by_id("tv_dialog_title")
