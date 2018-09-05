@@ -96,12 +96,32 @@ class Start(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
+    def get_class_name(self):
+        return self.__class__.__name__
+
+
+def suite():
+    # 定义一个单元测试容器
+    suite_test = unittest.TestSuite()
+    # 将测试用例加入到容器
+    suite_test.addTest(Start("test_a_find"))
+    suite_test.addTest(Start("test_find_element"))
+    suite_test.addTest(Start("test_home_share"))
+    suite_test.addTest(Start("test_click_user_info"))
+    suite_test.addTest(Start("test_success"))
+    suite_test.addTest(Start("test_failed"))
+    return suite_test
+
 
 if __name__ == '__main__':
     # 获取文件目录
     html_path = helper.init_html_folder()
     print(html_path)
     helper.say_hello()
+    html_name = helper.get_html_name(Start().get_class_name())
+    print(Start().get_class_name())
+    print(html_name)
+
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=html_path, report_title='Test Title', descriptions='des'))
 
     # 生成测试报告

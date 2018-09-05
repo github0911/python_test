@@ -51,6 +51,14 @@ def init_html_folder():
     return html_path
 
 
+# 获取报告文件名
+def get_html_name(test_module):
+    html_holder = init_html_folder()
+    ensure_dir(html_holder)
+    html_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+    return html_holder + test_module + "_" + html_time + '.html'
+
+
 # 获取保存日志文件名称
 def get_log_name():
     log_folder = get_dir_path_name() + '\\log\\'
