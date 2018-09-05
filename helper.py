@@ -27,7 +27,6 @@ def say_hello():
 
 # 初始化webdriver
 def init_driver():
-
     desired_caps = {}
     desired_caps['platformName'] = 'Android'
     # 红米note 5.1.1 三星galaxy s6 7.0
@@ -47,14 +46,18 @@ def find_element_by_id(driver, find_id):
 
 # 初始化报告保存文件夹
 def init_html_folder():
-    html_path = os.path.abspath(os.path.join(os.path.dirname(__file__))) + '\\html\\'
+    html_path = get_dir_path_name() + '\\html\\'
     ensure_dir(html_path)
     return html_path
 
 
 # 获取保存日志文件名称
 def get_log_name():
-    log_folder = os.path.abspath(os.path.join(os.path.dirname(__file__))) + '\\log\\'
+    log_folder = get_dir_path_name() + '\\log\\'
     ensure_dir(log_folder)
     log_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
     return log_folder + log_time + '.txt'
+
+
+def get_dir_path_name():
+    return os.path.abspath(os.path.join(os.path.dirname(__file__)))

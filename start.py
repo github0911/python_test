@@ -17,13 +17,13 @@ import helper
 # suite.addTest(Start("test_a_find"))
 # suite.addTest(Start("test_find_element"))
 # suite.addTest(Start("test_click_user_info"))
+
+
 class Start(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-
         cls.driver = helper.init_driver()
-
         time.sleep(2)
 
     def test_a_find(self):
@@ -45,8 +45,9 @@ class Start(unittest.TestCase):
         self.assertIsNone(el, "未找到个人中心")
         el.click()
 
-        self.assertTrue(len([el]) != 2, "未找到个人中心")
+        self.assertTrue(len(el) != 2, "未找到个人中心")
 
+    @unittest.skip
     def test_home_share(self):
         helper.take_screenshot(self.driver)
 
@@ -94,6 +95,7 @@ class Start(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
+
 
 if __name__ == '__main__':
     # 获取文件目录
