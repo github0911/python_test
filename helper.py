@@ -14,7 +14,7 @@ def ensure_dir(directory):
 # 获取截屏
 def take_screenshot(driver):
     print("take_screenshot start")
-    img_folder = os.path.abspath(os.path.join(os.path.dirname(__file__))) + '\\screenshots\\'
+    img_folder = get_dir_path_name() + '\\screenshots\\'
     ensure_dir(img_folder)
     screen_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
     screen_save_path = img_folder + screen_time + '.png'
