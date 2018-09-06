@@ -5,7 +5,6 @@ import helper
 import unittest
 import HtmlTestRunner
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.touch_actions import TouchActions
 
 
 class Login(unittest.TestCase):
@@ -68,6 +67,7 @@ class Login(unittest.TestCase):
 
     def scroll(self, x_offset, y_offset):
         print("scroll_up")
+        # https://www.cnblogs.com/yoyoketang/p/7766878.html
         self.driver.swipe(0, 0, x_offset, y_offset)
 
     @classmethod
