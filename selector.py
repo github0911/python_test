@@ -27,6 +27,7 @@ class Selectors(unittest.TestCase):
         self.assertTrue(3 == len(class_name), len(class_name))
 
     def test_find_elements_by_xpath(self):
+        # https://discuss.appium.io/t/selenium-common-exceptions-nosuchelementexception-message-an-element-could-not-be-located-on-the-page-using-the-given-search-parameters/19120
         xpath = self.driver.find_elements_by_xpath('//*[@class="android.widget.ImageView"]')
         self.assertTrue(len(xpath) == 2, len(xpath))
 
