@@ -8,8 +8,8 @@
 * [unittest官方文档](https://docs.python.org/3/library/unittest.html)
 
 ### 文件说明
-* start.py
-一些测试方法的示例
+~~* start.py
+一些测试方法的示例，看不明白的可以查看login/login.py~~
 * helper.py
 一些公用方法
 * selector.py

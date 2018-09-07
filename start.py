@@ -40,6 +40,7 @@ class Start(unittest.TestCase):
         el.click()
         # self.test_failed()
 
+    @unittest.skippe
     def test_find_element(self):
         # driver.find_element_by_name('跳过').click()
         el = self.driver.find_element_by_name("个人中心")
@@ -49,7 +50,6 @@ class Start(unittest.TestCase):
 
         self.assertTrue(len(el) != 2, "未找到个人中心")
 
-    @unittest.skip
     def test_home_share(self):
         helper.take_screenshot(self.driver)
 
