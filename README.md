@@ -28,4 +28,4 @@
 * origin  http://git.jxsg.local/zhangmm/jxsg_android_test.git (fetch)
 * origin  http://git.jxsg.local/zhangmm/jxsg_android_test.git (push)
 * git pull origin master 这样就可以更新代码，默认是master（远程分支名称）
-* 如果不清楚本地分支名称，可以使用git branch -r 查看远程分支名称
+* 如果不清楚远程分支名称，可以使用git branch -r 查看远程分支名称
