@@ -20,3 +20,11 @@
 带有饼图的测试报告，打印信息会输出在测试报告中
 * HTMLTestReportCN.py
 没有饼图的测试报告
+### 生成测试报告需要使用命令执行py文件
+
+#### 通过命令行更新代码（本地代码没有修改的情况下操作）
+* git remote -v 查看远程关联仓库地址名称
+* origin  http://git.jxsg.local/zhangmm/jxsg_android_test.git (fetch)
+* origin  http://git.jxsg.local/zhangmm/jxsg_android_test.git (push)
+* git pull origin master 这样就可以更新代码，默认是master（本地分支名称）
+* 如果不清楚本地分支名称，可以使用git branch 查看本地分支

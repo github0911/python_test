@@ -6,6 +6,8 @@ import unittest
 import HtmlTestRunner
 from selenium.common.exceptions import NoSuchElementException
 
+user_name = "test5"
+password = "Abc1234567"
 
 class Login(unittest.TestCase):
 
@@ -30,9 +32,9 @@ class Login(unittest.TestCase):
         self.jump_to_login()
         try:
             et_account = self.driver.find_element_by_id("et_account")
-            et_account.send_keys("test5")
+            et_account.send_keys(user_name)
             et_password = self.driver.find_element_by_id("et_password")
-            et_password.send_keys("Abc1234567")
+            et_password.send_keys(password)
 
             v_login = self.driver.find_element_by_id("v_login")
             v_login.click()
