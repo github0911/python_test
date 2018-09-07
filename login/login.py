@@ -15,11 +15,10 @@ class Login(unittest.TestCase):
         cls.driver.implicitly_wait(5)
 
     def check(self):
-
         # https://discuss.appium.io/t/permission-to-start-activity-denied-while-launching-the-app/4874
         # self.driver.start_activity("com.jingxuansugou.app", ".business.login.activity.LoginActivity")
-
         print("check")
+        pass
 
     def jump_to_login(self):
         el = self.driver.find_elements_by_id("tv_home_bottom_menu")
@@ -39,9 +38,13 @@ class Login(unittest.TestCase):
             v_login.click()
         except NoSuchElementException as ex:
             print("Element not found and test failed", ex.msg)
-        finally:
-            self.click_user_center()
-            self.click_setting()
+            self.click_user_home()
+
+    def click_user_home(self):
+        el = self.driver.find_elements_by_id("tv_home_bottom_menu")
+        print(len(el))
+        self.assertIsNotNone(el[-5])
+        el[-5].click()
 
     def click_user_center(self):
         el = self.driver.find_elements_by_id("tv_home_bottom_menu")
@@ -54,11 +57,12 @@ class Login(unittest.TestCase):
             iv_set = self.driver.find_element_by_id("iv_set")
             iv_set.click()
             self.scroll(0, 200)
-            self.click_logout()
         except NoSuchElementException as ex:
             print("Element not found and test failed", ex.msg)
 
-    def click_logout(self):
+    def test_logout(self):
+        self.click_user_center()
+        self.click_setting()
         try:
             tv_logout = self.driver.find_element_by_id("tv_logout")
             tv_logout.click()
