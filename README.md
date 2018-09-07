@@ -13,6 +13,10 @@
 * helper.py
 一些公用方法
 * selector.py
-查找元素的示例
+查找元素的示例，包括生成测试报告的使用方式
 * login/login.py
 登录（退出登录）测试
+* HTMLTestRunner_PY3.py
+带有饼图的测试报告，打印信息会输出在测试报告中
+* HTMLTestReportCN.py
+没有饼图的测试报告
