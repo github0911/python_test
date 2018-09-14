@@ -9,6 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 user_name = "test5"
 password = "Abc1234567"
 
+
 class Login(unittest.TestCase):
 
     @classmethod
