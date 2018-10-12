@@ -6,6 +6,8 @@
 * [系统学习Python](http://www.runoob.com/python3/python3-tutorial.html)
 * [官方示例代码（最新）](https://github.com/appium/appium/tree/master/sample-code/python)
 * [unittest官方文档](https://docs.python.org/3/library/unittest.html)
+* [从零开始学自动化测试](https://cloud.tencent.com/developer/column/2319/tag-0)
+* [toast消息](https://cloud.tencent.com/developer/article/1087083)
 
 ### 文件说明
 ~~* start.py
