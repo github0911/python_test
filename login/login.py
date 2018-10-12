@@ -5,6 +5,8 @@ import helper
 import unittest
 import HtmlTestRunner
 from selenium.common.exceptions import NoSuchElementException
+import HTMLTestReportCN
+from HTMLTestRunner_PY3 import HTMLTestRunner
 
 user_name = "test5"
 password = "Abc1234567"
@@ -32,6 +34,7 @@ class Login(unittest.TestCase):
     def test_login(self):
         self.jump_to_login()
         try:
+            print(self.driver.current_activity)
             et_account = self.driver.find_element_by_id("et_account")
             et_account.send_keys(user_name)
             et_password = self.driver.find_element_by_id("et_password")
@@ -85,13 +88,35 @@ class Login(unittest.TestCase):
         return self.__class__.__name__
 
 
+def suite():
+    suite = unittest.TestSuite()
+    suite.addTest(Login("test_login"))
+    suite.addTest(Login("test_logout"))
+    return suite
+
+
 if __name__ == '__main__':
 
-    html_path = helper.init_html_folder()
-    print(html_path)
-    helper.say_hello()
-    html_name = helper.get_html_name(Login().get_class_name())
-    print(Login().get_class_name())
-    print(html_name)
+    # 简单的测试报告
+    # html_path = helper.init_html_folder()
+    # print(html_path)
+    # helper.say_hello()
+    # html_name = helper.get_html_name(Login().get_class_name())
+    # print(Login().get_class_name())
+    # print(html_name)
+    #
+    # unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=html_path, report_title='Test Title'))
 
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=html_path, report_title='Test Title'))
+    # 美化后的测试报告
+    report_title = '测试报告'
+    desc = '用于展示修改样式后的HTMLTestRunner'
+    report_file = helper.get_html_name("selector")
+    fp = open(report_file, 'wb')
+
+    # 带有饼图的测试报告
+    runner = HTMLTestRunner(
+        stream=fp,
+        title=report_title,
+        description=desc
+    )
+    runner.run(suite())
