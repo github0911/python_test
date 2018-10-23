@@ -41,3 +41,39 @@ if L2 == ['hello', 'world', 'apple']:
     print('测试通过!')
 else:
     print('测试失败!')
+
+
+# 生成器 generator
+
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+# 这就是定义generator的另一种方法。如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator：
+
+# def fib(max):
+#     n, a, b = 0, 0, 1
+#     while n < max:
+#         yield b
+#         a, b = b, a + b
+#         n = n + 1
+#     return "done"
+
+
+fib(6)
+
+
+# 迭代器
+
+
+from collections import Iterable, Iterator
+
+print(isinstance([], Iterable))
+print(isinstance({}, Iterable))
+print(isinstance((), Iterable))
+
+print(isinstance([], Iterator))
