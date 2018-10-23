@@ -31,3 +31,21 @@ def add(x, y):
 
 r = reduce(add, L)
 print(r)
+
+
+def fn(x, y):
+    return x * 10 + y
+
+
+i = reduce(fn, [1, 3, 5, 7, 9])
+print(i)
+
+
+def normalise(name):
+    if isinstance(name, str):
+        return name.title()
+
+
+L1 = ['adam', 'LISA', 'barT']
+L2 = map(normalise, L1)
+print(L2)
